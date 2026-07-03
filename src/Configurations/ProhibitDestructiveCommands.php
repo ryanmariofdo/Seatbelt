@@ -9,7 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
 use Judehashane\Blueprint\Contracts\Configuration;
 
-final class ProhibitDestructiveCommandsConfiguration implements Configuration
+final class ProhibitDestructiveCommands implements Configuration
 {
     public function __construct(
         private readonly Application $app,
