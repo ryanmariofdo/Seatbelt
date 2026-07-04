@@ -49,6 +49,12 @@ This publishes:
 - `pint.json`, `phpstan.neon`, `rector.php` — tooling configs, at your project root
 - `.github/workflows/tests.yml` — a CI workflow running Pint, PHPStan, and Pest
 
+These are config files, not the tools themselves — Blueprint doesn't install Pint/PHPStan/Rector into your app (doing so would ship a static-analysis toolchain into every production deploy for zero runtime benefit). `laravel/pint` already ships with a default Laravel app; for the rest, install what the published configs expect:
+
+```bash
+composer require --dev larastan/larastan mrpunyapal/peststan rector/rector driftingly/rector-laravel mrpunyapal/rector-pest
+```
+
 Pass `--force` to overwrite files that already exist:
 
 ```bash

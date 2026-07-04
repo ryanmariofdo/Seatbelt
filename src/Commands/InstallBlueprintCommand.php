@@ -33,6 +33,10 @@ final class InstallBlueprintCommand extends Command
 
         $this->info('Blueprint installed successfully.');
 
+        $this->newLine();
+        $this->comment('The published pint.json/phpstan.neon/rector.php expect these dev tools — install what you don\'t already have:');
+        $this->line('  composer require --dev larastan/larastan mrpunyapal/peststan rector/rector driftingly/rector-laravel mrpunyapal/rector-pest');
+
         return self::SUCCESS;
     }
 }
