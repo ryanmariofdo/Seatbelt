@@ -25,7 +25,6 @@ final class BlueprintServiceProvider extends ServiceProvider
             __DIR__.'/../stubs/pint.json' => base_path('pint.json'),
             __DIR__.'/../stubs/phpstan.neon' => base_path('phpstan.neon'),
             __DIR__.'/../stubs/rector.php' => base_path('rector.php'),
-            __DIR__.'/../stubs/tests.yml' => base_path('.github/workflows/tests.yml'),
         ], 'blueprint-stubs');
 
         $this->applyConfigurations();
