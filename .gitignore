@@ -2,7 +2,6 @@
 composer.lock
 .phpunit.result.cache
 .pest.result.cache
-/.pest-cache/
 .php-cs-fixer.cache
 /build/
 /coverage/

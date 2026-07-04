@@ -33,4 +33,4 @@ jobs:
         run: vendor/bin/phpstan analyse --error-format=github
 
       - name: Tests (Pest)
-        run: vendor/bin/pest --ci --cache-directory=.pest-cache
+        run: vendor/bin/pest --ci

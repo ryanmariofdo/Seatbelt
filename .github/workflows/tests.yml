@@ -36,8 +36,8 @@ jobs:
         run: composer validate --strict
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-interaction --no-progress
-
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+ 
       - name: Rector
         run: vendor/bin/rector process --dry-run
 
