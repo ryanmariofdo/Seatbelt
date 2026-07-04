@@ -67,6 +67,10 @@ Or run the full quality gate (Rector dry-run, Pint, PHPStan, Pest):
 composer quality
 ```
 
+## Contributing
+
+PRs are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for setup and what's expected before opening one.
+
 ## License
 
 MIT.
