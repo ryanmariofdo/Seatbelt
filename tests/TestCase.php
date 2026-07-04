@@ -27,5 +27,11 @@ abstract class TestCase extends Orchestra
             'database' => ':memory:',
             'prefix' => '',
         ]);
+
+        // Each Configuration is instantiated and applied explicitly within its own
+        // test. Without this, BlueprintServiceProvider::boot() would auto-apply every
+        // dev-gated configuration (StrictModels, DatabaseMonitoring) to every test in
+        // the suite, since the testing environment satisfies `! isProduction()`.
+        $app['config']->set('blueprint.configurations', []);
     }
 }
