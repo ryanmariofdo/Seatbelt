@@ -57,7 +57,7 @@ beforeEach(function (): void {
     ]);
 });
 
-afterEach(function () {
+afterEach(function (): void {
     Model::shouldBeStrict(false);
     Schema::dropIfExists('strict_models_test_authors');
     Schema::dropIfExists('strict_models_test_books');
