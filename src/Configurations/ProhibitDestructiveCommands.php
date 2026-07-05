@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class ProhibitDestructiveCommands implements Configuration
 {
@@ -19,7 +19,7 @@ final class ProhibitDestructiveCommands implements Configuration
     public function enabled(): bool
     {
         return $this->app->isProduction()
-            && $this->config->get('blueprint.prohibit_destructive_commands', true);
+            && $this->config->get('seatbelt.prohibit_destructive_commands', true);
     }
 
     public function apply(): void

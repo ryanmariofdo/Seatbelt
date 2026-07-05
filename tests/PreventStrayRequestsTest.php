@@ -6,7 +6,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Client\StrayRequestException;
 use Illuminate\Support\Facades\Http;
-use Judehashane\Blueprint\Configurations\PreventStrayRequests;
+use Judehashane\Seatbelt\Configurations\PreventStrayRequests;
 
 afterEach(function (): void {
     Http::preventStrayRequests(false);

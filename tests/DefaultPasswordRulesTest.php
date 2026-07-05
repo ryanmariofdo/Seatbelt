@@ -7,7 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
-use Judehashane\Blueprint\Configurations\DefaultPasswordRules;
+use Judehashane\Seatbelt\Configurations\DefaultPasswordRules;
 
 afterEach(function (): void {
     Password::$defaultCallback = null;
@@ -16,11 +16,11 @@ afterEach(function (): void {
 function applyPasswordRule(array $overrides = []): void
 {
     $settings = array_merge([
-        'blueprint.password.min_length' => 8,
-        'blueprint.password.max_length' => 20,
-        'blueprint.password.require_letter' => false,
-        'blueprint.password.require_numbers' => false,
-        'blueprint.password.require_symbols' => false,
+        'seatbelt.password.min_length' => 8,
+        'seatbelt.password.max_length' => 20,
+        'seatbelt.password.require_letter' => false,
+        'seatbelt.password.require_numbers' => false,
+        'seatbelt.password.require_symbols' => false,
     ], $overrides);
 
     $app = Mockery::mock(Application::class);
@@ -50,7 +50,7 @@ it('enforces the configured length boundaries', function (string $password, bool
 
 it('enforces character-class requirements when enabled', function (): void {
     Http::fake(['api.pwnedpasswords.com/*' => Http::response('')]);
-    applyPasswordRule(['blueprint.password.require_symbols' => true]);
+    applyPasswordRule(['seatbelt.password.require_symbols' => true]);
 
     $withoutSymbol = Validator::make(['password' => 'abcdefgh'], ['password' => Password::default()]);
     $withSymbol = Validator::make(['password' => 'abcdefg!'], ['password' => Password::default()]);

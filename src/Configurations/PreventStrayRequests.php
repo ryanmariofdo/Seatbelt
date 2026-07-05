@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Http;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class PreventStrayRequests implements Configuration
 {
@@ -19,7 +19,7 @@ final class PreventStrayRequests implements Configuration
     public function enabled(): bool
     {
         return $this->app->runningUnitTests()
-            && $this->config->get('blueprint.prevent_stray_requests', true);
+            && $this->config->get('seatbelt.prevent_stray_requests', true);
     }
 
     public function apply(): void

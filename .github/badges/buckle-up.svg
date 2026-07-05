@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="20" viewBox="0 0 140 20" role="img" aria-label="Buckle Up">
+  <defs>
+    <pattern id="hazard" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="14" height="14" fill="#000000"/>
+      <rect width="7" height="14" fill="#FFD500"/>
+    </pattern>
+    <clipPath id="round">
+      <rect width="140" height="20" rx="3" ry="3"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="140" height="20" fill="url(#hazard)"/>
+    <rect x="8" y="3" width="124" height="14" rx="2" fill="#000000" opacity="0.8"/>
+  </g>
+  <text x="70" y="14" font-family="Verdana, DejaVu Sans, sans-serif" font-size="10" font-weight="bold" fill="#FFD500" text-anchor="middle">⚠ BUCKLE UP</text>
+</svg>

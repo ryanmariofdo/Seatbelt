@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Facades\Date;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class ImmutableDates implements Configuration
 {
@@ -17,7 +17,7 @@ final class ImmutableDates implements Configuration
 
     public function enabled(): bool
     {
-        return (bool) $this->config->get('blueprint.immutable_dates', true);
+        return (bool) $this->config->get('seatbelt.immutable_dates', true);
     }
 
     public function apply(): void

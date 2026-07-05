@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Contracts;
+namespace Judehashane\Seatbelt\Contracts;
 
 interface Configuration
 {

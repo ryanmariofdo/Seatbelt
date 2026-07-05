@@ -1,5 +1,5 @@
 {
-    "name": "judehashane/blueprint",
+    "name": "judehashane/seatbelt",
     "description": "Opinionated, Production-Ready Laravel Standards—All in One Go",
     "keywords": [
         "laravel",
@@ -19,8 +19,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Hashane/Blueprint/issues",
-        "source": "https://github.com/Hashane/Blueprint"
+        "issues": "https://github.com/Hashane/Seatbelt/issues",
+        "source": "https://github.com/Hashane/Seatbelt"
     },
     "require": {
         "php": "^8.3",
@@ -37,18 +37,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Judehashane\\Blueprint\\": "src/"
+            "Judehashane\\Seatbelt\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Judehashane\\Blueprint\\Tests\\": "tests/"
+            "Judehashane\\Seatbelt\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Judehashane\\Blueprint\\BlueprintServiceProvider"
+                "Judehashane\\Seatbelt\\SeatbeltServiceProvider"
             ]
         }
     },

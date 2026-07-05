@@ -6,7 +6,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Judehashane\Blueprint\Configurations\DatabaseMonitoring;
+use Judehashane\Seatbelt\Configurations\DatabaseMonitoring;
 
 it('logs a warning once the cumulative query time exceeds the configured budget', function (): void {
     Log::spy();
@@ -14,7 +14,7 @@ it('logs a warning once the cumulative query time exceeds the configured budget'
     $app = Mockery::mock(Application::class);
 
     $config = Mockery::mock(Repository::class);
-    $config->shouldReceive('get')->with('blueprint.database.query_budget_ms', 500)->andReturn(500);
+    $config->shouldReceive('get')->with('seatbelt.database.query_budget_ms', 500)->andReturn(500);
 
     (new DatabaseMonitoring($app, $config))->apply();
 
@@ -40,7 +40,7 @@ it('does not log when the query stays within the configured budget', function ()
     $app = Mockery::mock(Application::class);
 
     $config = Mockery::mock(Repository::class);
-    $config->shouldReceive('get')->with('blueprint.database.query_budget_ms', 500)->andReturn(500);
+    $config->shouldReceive('get')->with('seatbelt.database.query_budget_ms', 500)->andReturn(500);
 
     (new DatabaseMonitoring($app, $config))->apply();
 

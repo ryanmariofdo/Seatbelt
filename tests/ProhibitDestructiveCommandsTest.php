@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
-use Judehashane\Blueprint\Configurations\ProhibitDestructiveCommands;
+use Judehashane\Seatbelt\Configurations\ProhibitDestructiveCommands;
 
 afterEach(function (): void {
     DB::prohibitDestructiveCommands(false);

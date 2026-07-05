@@ -9,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Judehashane\Blueprint\Configurations\AutomaticEagerLoading;
+use Judehashane\Seatbelt\Configurations\AutomaticEagerLoading;
 
 class EagerLoadingTestAuthor extends Model
 {

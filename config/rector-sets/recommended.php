@@ -13,8 +13,8 @@ use RectorPest\Set\PestLevelSetList;
 use RectorPest\Set\PestSetList;
 
 /**
- * Blueprint's curated Laravel + Pest rule selection. Referenced live from
- * vendor/ via BlueprintSetList::RECOMMENDED — never copy this file, import it.
+ * Seatbelt's curated Laravel + Pest rule selection. Referenced live from
+ * vendor/ via SeatbeltSetList::RECOMMENDED — never copy this file, import it.
  */
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->import(LaravelLevelSetList::UP_TO_LARAVEL_130);

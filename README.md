@@ -1,4 +1,10 @@
-# Blueprint
+# Seatbelt
+
+[![Tests](https://github.com/Hashane/Seatbelt/actions/workflows/tests.yml/badge.svg)](https://github.com/Hashane/Seatbelt/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![PHP Version](https://img.shields.io/badge/PHP-%5E8.3-777BB4?logo=php&logoColor=white)](composer.json)
+[![Laravel Version](https://img.shields.io/badge/Laravel-%5E12%20%7C%20%5E13-FF2D20?logo=laravel&logoColor=white)](composer.json)
+![Buckle Up](.github/badges/buckle-up.svg)
 
 [![Tests](https://github.com/Hashane/Blueprint/actions/workflows/tests.yml/badge.svg)](https://github.com/Hashane/Blueprint/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -10,18 +16,18 @@ It applies a set of production-safety and dev-quality defaults the moment it's i
 ## Installation
 
 ```bash
-composer require judehashane/blueprint
+composer require judehashane/seatbelt
 ```
 
 That's it — the defaults below are active immediately. If you want to see or change them, publish the config:
 
 ```bash
-php artisan vendor:publish --tag=blueprint-config
+php artisan vendor:publish --tag=seatbelt-config
 ```
 
 ## What it does
 
-Each behavior below is its own `Configuration` class, listed in the `configurations` array in `config/blueprint.php`. Remove an entry from that array to disable it entirely, or leave it in and use its config key to toggle it. All of them are on by default.
+Each behavior below is its own `Configuration` class, listed in the `configurations` array in `config/seatbelt.php`. Remove an entry from that array to disable it entirely, or leave it in and use its config key to toggle it. All of them are on by default.
 
 | Configuration                 | Active when        | Config key(s)                                                                                                                                            | What it does                                                                                                                                                                                                               |
 | ----------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -44,10 +50,10 @@ A few of these are gated in opposite directions on purpose. `StrictModels` and `
 Run the install command to also publish tooling configs into a fresh project:
 
 ```bash
-php artisan blueprint:install
+php artisan seatbelt:install
 ```
 
-This publishes `config/blueprint.php` plus `pint.json`, `phpstan.neon`, and `rector.php` at your project root.
+This publishes `config/seatbelt.php` plus `pint.json`, `phpstan.neon`, and `rector.php` at your project root.
 
 These are config files, not the tools — install what they expect (`laravel/pint` already ships with a default Laravel app):
 
@@ -55,12 +61,12 @@ These are config files, not the tools — install what they expect (`laravel/pin
 composer require --dev larastan/larastan mrpunyapal/peststan rector/rector driftingly/rector-laravel mrpunyapal/rector-pest
 ```
 
-`phpstan.neon` and `rector.php` stay thin on purpose — they reference Blueprint's curated rules live from `vendor/judehashane/blueprint`, so `composer update judehashane/blueprint` picks up rule changes without re-publishing anything. `pint.json` is the exception: a full static copy, since Pint has no equivalent way to reference a vendor package's ruleset. Re-publish it with `--force` if Blueprint's Pint rules change.
+`phpstan.neon` and `rector.php` stay thin on purpose — they reference Seatbelt's curated rules live from `vendor/judehashane/seatbelt`, so `composer update judehashane/seatbelt` picks up rule changes without re-publishing anything. `pint.json` is the exception: a full static copy, since Pint has no equivalent way to reference a vendor package's ruleset. Re-publish it with `--force` if Seatbelt's Pint rules change.
 
 Pass `--force` to overwrite files that already exist:
 
 ```bash
-php artisan blueprint:install --force
+php artisan seatbelt:install --force
 ```
 
 ## Testing

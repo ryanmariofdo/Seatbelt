@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Process;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class PreventStrayProcesses implements Configuration
 {
@@ -19,7 +19,7 @@ final class PreventStrayProcesses implements Configuration
     public function enabled(): bool
     {
         return $this->app->runningUnitTests()
-            && $this->config->get('blueprint.prevent_stray_processes', true);
+            && $this->config->get('seatbelt.prevent_stray_processes', true);
     }
 
     public function apply(): void

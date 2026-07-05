@@ -6,7 +6,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
-use Judehashane\Blueprint\Configurations\ForceHttpsScheme;
+use Judehashane\Seatbelt\Configurations\ForceHttpsScheme;
 
 afterEach(function (): void {
     URL::forceScheme(null);
@@ -24,7 +24,7 @@ it('forces generated urls to https even when the current request is plain http',
     $app->shouldReceive('isProduction')->andReturn(true);
 
     $config = Mockery::mock(Repository::class);
-    $config->shouldReceive('get')->with('blueprint.force_https_scheme', true)->andReturn(true);
+    $config->shouldReceive('get')->with('seatbelt.force_https_scheme', true)->andReturn(true);
 
     (new ForceHttpsScheme($app, $config))->apply();
 

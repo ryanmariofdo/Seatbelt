@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Judehashane\Blueprint\RectorSets\BlueprintSetList;
+use Judehashane\Seatbelt\RectorSets\SeatbeltSetList;
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\Config\RectorConfig;
 use RectorLaravel\Set\LaravelSetProvider;
@@ -10,7 +10,7 @@ use RectorLaravel\Set\LaravelSetProvider;
 return RectorConfig::configure()
     ->withSetProviders(LaravelSetProvider::class)
     ->withSets([
-        BlueprintSetList::RECOMMENDED,
+        SeatbeltSetList::RECOMMENDED,
     ])
     ->withComposerBased(laravel: true)
     ->withCache(

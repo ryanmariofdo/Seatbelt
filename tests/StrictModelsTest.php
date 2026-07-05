@@ -10,7 +10,7 @@ use Illuminate\Database\LazyLoadingViolationException;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Schema;
-use Judehashane\Blueprint\Configurations\StrictModels;
+use Judehashane\Seatbelt\Configurations\StrictModels;
 
 class StrictModelsTestAuthor extends Model
 {

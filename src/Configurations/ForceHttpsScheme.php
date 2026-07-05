@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\URL;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class ForceHttpsScheme implements Configuration
 {
@@ -19,7 +19,7 @@ final class ForceHttpsScheme implements Configuration
     public function enabled(): bool
     {
         return $this->app->isProduction()
-            && $this->config->get('blueprint.force_https_scheme', true);
+            && $this->config->get('seatbelt.force_https_scheme', true);
     }
 
     public function apply(): void

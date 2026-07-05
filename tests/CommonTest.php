@@ -4,32 +4,32 @@ declare(strict_types=1);
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
-use Judehashane\Blueprint\Configurations\AutomaticEagerLoading;
-use Judehashane\Blueprint\Configurations\DatabaseMonitoring;
-use Judehashane\Blueprint\Configurations\DefaultPasswordRules;
-use Judehashane\Blueprint\Configurations\ForceHttpsScheme;
-use Judehashane\Blueprint\Configurations\PreventStrayProcesses;
-use Judehashane\Blueprint\Configurations\PreventStrayRequests;
-use Judehashane\Blueprint\Configurations\ProhibitDestructiveCommands;
-use Judehashane\Blueprint\Configurations\QueueFailedJobLogging;
-use Judehashane\Blueprint\Configurations\StrictModels;
+use Judehashane\Seatbelt\Configurations\AutomaticEagerLoading;
+use Judehashane\Seatbelt\Configurations\DatabaseMonitoring;
+use Judehashane\Seatbelt\Configurations\DefaultPasswordRules;
+use Judehashane\Seatbelt\Configurations\ForceHttpsScheme;
+use Judehashane\Seatbelt\Configurations\PreventStrayProcesses;
+use Judehashane\Seatbelt\Configurations\PreventStrayRequests;
+use Judehashane\Seatbelt\Configurations\ProhibitDestructiveCommands;
+use Judehashane\Seatbelt\Configurations\QueueFailedJobLogging;
+use Judehashane\Seatbelt\Configurations\StrictModels;
 
 dataset('production-gated configurations', [
-    'ProhibitDestructiveCommands' => [ProhibitDestructiveCommands::class, 'blueprint.prohibit_destructive_commands'],
-    'DefaultPasswordRules' => [DefaultPasswordRules::class, 'blueprint.password.enforce_rule'],
-    'ForceHttpsScheme' => [ForceHttpsScheme::class, 'blueprint.force_https_scheme'],
-    'AutomaticEagerLoading' => [AutomaticEagerLoading::class, 'blueprint.automatically_eager_load_relationships'],
-    'QueueFailedJobJobLogging' => [QueueFailedJobLogging::class, 'blueprint.queue_failed_job_logging'],
+    'ProhibitDestructiveCommands' => [ProhibitDestructiveCommands::class, 'seatbelt.prohibit_destructive_commands'],
+    'DefaultPasswordRules' => [DefaultPasswordRules::class, 'seatbelt.password.enforce_rule'],
+    'ForceHttpsScheme' => [ForceHttpsScheme::class, 'seatbelt.force_https_scheme'],
+    'AutomaticEagerLoading' => [AutomaticEagerLoading::class, 'seatbelt.automatically_eager_load_relationships'],
+    'QueueFailedJobLogging' => [QueueFailedJobLogging::class, 'seatbelt.queue_failed_job_logging'],
 ]);
 
 dataset('dev-gated configurations', [
-    'StrictModels' => [StrictModels::class, 'blueprint.enforce_strict_models'],
-    'DatabaseMonitoring' => [DatabaseMonitoring::class, 'blueprint.database.enforce_monitoring'],
+    'StrictModels' => [StrictModels::class, 'seatbelt.enforce_strict_models'],
+    'DatabaseMonitoring' => [DatabaseMonitoring::class, 'seatbelt.database.enforce_monitoring'],
 ]);
 
 dataset('test-only-gated configurations', [
-    'PreventStrayRequests' => [PreventStrayRequests::class, 'blueprint.prevent_stray_requests'],
-    'PreventStrayProcesses' => [PreventStrayProcesses::class, 'blueprint.prevent_stray_processes'],
+    'PreventStrayRequests' => [PreventStrayRequests::class, 'seatbelt.prevent_stray_requests'],
+    'PreventStrayProcesses' => [PreventStrayProcesses::class, 'seatbelt.prevent_stray_processes'],
 ]);
 
 it('is enabled in production when its config flag is on', function (string $class, string $key): void {

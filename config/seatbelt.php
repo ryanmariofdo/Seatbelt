@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-use Judehashane\Blueprint\Configurations\AutomaticEagerLoading;
-use Judehashane\Blueprint\Configurations\DatabaseMonitoring;
-use Judehashane\Blueprint\Configurations\DefaultPasswordRules;
-use Judehashane\Blueprint\Configurations\ForceHttpsScheme;
-use Judehashane\Blueprint\Configurations\ImmutableDates;
-use Judehashane\Blueprint\Configurations\PreventStrayProcesses;
-use Judehashane\Blueprint\Configurations\PreventStrayRequests;
-use Judehashane\Blueprint\Configurations\ProhibitDestructiveCommands;
-use Judehashane\Blueprint\Configurations\QueueFailedJobLogging;
-use Judehashane\Blueprint\Configurations\StrictModels;
-use Judehashane\Blueprint\Configurations\ViteAggressivePrefetching;
+use Judehashane\Seatbelt\Configurations\AutomaticEagerLoading;
+use Judehashane\Seatbelt\Configurations\DatabaseMonitoring;
+use Judehashane\Seatbelt\Configurations\DefaultPasswordRules;
+use Judehashane\Seatbelt\Configurations\ForceHttpsScheme;
+use Judehashane\Seatbelt\Configurations\ImmutableDates;
+use Judehashane\Seatbelt\Configurations\PreventStrayProcesses;
+use Judehashane\Seatbelt\Configurations\PreventStrayRequests;
+use Judehashane\Seatbelt\Configurations\ProhibitDestructiveCommands;
+use Judehashane\Seatbelt\Configurations\QueueFailedJobLogging;
+use Judehashane\Seatbelt\Configurations\StrictModels;
+use Judehashane\Seatbelt\Configurations\ViteAggressivePrefetching;
 
 return [
 
@@ -22,7 +22,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Configuration classes to run on boot. Each must implement
-    | Judehashane\Blueprint\Contracts\Configuration. A configuration only
+    | Judehashane\Seatbelt\Contracts\Configuration. A configuration only
     | takes effect when its own enabled() check passes. Remove an entry to
     | disable that behavior entirely, or leave it in and use the settings
     | below to toggle it instead.

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\RectorSets;
+namespace Judehashane\Seatbelt\RectorSets;
 
-final class BlueprintSetList
+final class SeatbeltSetList
 {
     /**
      * @var string

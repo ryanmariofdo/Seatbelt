@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Configurations;
+namespace Judehashane\Seatbelt\Configurations;
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Queue;
-use Judehashane\Blueprint\Contracts\Configuration;
+use Judehashane\Seatbelt\Contracts\Configuration;
 
 final class QueueFailedJobLogging implements Configuration
 {
@@ -21,7 +21,7 @@ final class QueueFailedJobLogging implements Configuration
     public function enabled(): bool
     {
         return $this->app->isProduction()
-            && $this->config->get('blueprint.queue_failed_job_logging', true);
+            && $this->config->get('seatbelt.queue_failed_job_logging', true);
     }
 
     public function apply(): void

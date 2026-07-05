@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_type=1);
+declare(strict_types=1);
 
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Queue\Job;
 use Illuminate\Foundation\Application;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Support\Facades\Log;
-use Judehashane\Blueprint\Configurations\QueueFailedJobLogging;
+use Judehashane\Seatbelt\Configurations\QueueFailedJobLogging;
 
 it('logs a failed job with connection, queue, job, and exception context', function (): void {
     Log::spy();

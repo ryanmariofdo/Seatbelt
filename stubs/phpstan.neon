@@ -1,5 +1,5 @@
 includes:
-    - vendor/judehashane/blueprint/config/phpstan.neon
+    - vendor/judehashane/seatbelt/config/phpstan.neon
 
 parameters:
     paths:

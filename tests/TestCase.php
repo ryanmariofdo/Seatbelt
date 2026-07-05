@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Judehashane\Blueprint\Tests;
+namespace Judehashane\Seatbelt\Tests;
 
-use Judehashane\Blueprint\BlueprintServiceProvider;
+use Judehashane\Seatbelt\SeatbeltServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -15,7 +15,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
-            BlueprintServiceProvider::class,
+            SeatbeltServiceProvider::class,
         ];
     }
 
@@ -29,9 +29,9 @@ abstract class TestCase extends Orchestra
         ]);
 
         // Each Configuration is instantiated and applied explicitly within its own
-        // test. Without this, BlueprintServiceProvider::boot() would auto-apply every
+        // test. Without this, SeatbeltServiceProvider::boot() would auto-apply every
         // dev-gated configuration (StrictModels, DatabaseMonitoring) to every test in
         // the suite, since the testing environment satisfies `! isProduction()`.
-        $app['config']->set('blueprint.configurations', []);
+        $app['config']->set('seatbelt.configurations', []);
     }
 }
