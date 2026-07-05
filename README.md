@@ -5,7 +5,7 @@ Opinionated, production-ready Laravel standards — all in one go.
 Blueprint does two things:
 
 1. **Applies a set of production-safety and dev-quality defaults automatically** the moment it's installed — no config publishing required. Things like blocking `db:wipe` in production, enforcing strong passwords, and catching N+1 queries in development.
-2. **Bootstraps a new project's tooling** — Pint, PHPStan/Larastan, and Rector configs, plus a CI workflow — via a single install command.
+2. **Bootstraps a new project's tooling** — Pint, PHPStan/Larastan, and Rector configs — via a single install command.
 
 ## Installation
 
@@ -49,13 +49,14 @@ This publishes:
 
 - `config/blueprint.php` — Blueprint's own configuration (same as `vendor:publish --tag=blueprint-config`)
 - `pint.json`, `phpstan.neon`, `rector.php` — tooling configs, at your project root
-- `.github/workflows/tests.yml` — a CI workflow running Pint, PHPStan, and Pest
 
 These are config files, not the tools themselves — Blueprint doesn't install Pint/PHPStan/Rector into your app (doing so would ship a static-analysis toolchain into every production deploy for zero runtime benefit). `laravel/pint` already ships with a default Laravel app; for the rest, install what the published configs expect:
 
 ```bash
 composer require --dev larastan/larastan mrpunyapal/peststan rector/rector driftingly/rector-laravel mrpunyapal/rector-pest
 ```
+
+The published `phpstan.neon`/`rector.php` are thin — they only wire up project-specific bits (paths, cache directory) and then reference Blueprint's own curated rule set/config live from `vendor/judehashane/blueprint`, via `includes:` and `BlueprintSetList::RECOMMENDED` respectively. That means `composer update judehashane/blueprint` picks up rule changes automatically — no re-running `blueprint:install --force` and no losing any customization you've made to the published files. Only `pint.json` is a full static copy (Pint doesn't have an equivalent "reference a vendor package's ruleset" mechanism), so re-publish with `--force` if Blueprint's Pint rules change.
 
 Pass `--force` to overwrite files that already exist:
 

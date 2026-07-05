@@ -1,0 +1,22 @@
+includes:
+    - %currentWorkingDirectory%/vendor/larastan/larastan/extension.neon
+    - %currentWorkingDirectory%/vendor/nesbot/carbon/extension.neon
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+    - %currentWorkingDirectory%/vendor/mrpunyapal/peststan/extension.neon
+
+parameters:
+    level: 7
+
+    # Laravel-specific analysis
+    checkConfigTypes: true
+    checkModelMethodVisibility: true
+
+    # Enable after validating schema inference:
+    # checkModelProperties: true
+
+    # Enable only for Laravel Octane applications:
+    # checkOctaneCompatibility: true
+
+    # Keep suppressions narrow, valid and documented
+    reportUnmatchedIgnoredErrors: true
+    reportIgnoresWithoutComments: true

@@ -1,12 +1,7 @@
 includes:
-    - vendor/larastan/larastan/extension.neon
-    - vendor/nesbot/carbon/extension.neon
-    - phar://phpstan.phar/conf/bleedingEdge.neon
-    - vendor/mrpunyapal/peststan/extension.neon
+    - vendor/judehashane/blueprint/config/phpstan.neon
 
 parameters:
-    level: 7
-
     paths:
         - app/
         - bootstrap/app.php
@@ -14,17 +9,3 @@ parameters:
         - config/
         - database/
         - routes/
-
-    # Laravel-specific analysis
-    checkConfigTypes: true
-    checkModelMethodVisibility: true
-
-    # Enable after validating schema inference:
-    # checkModelProperties: true
-
-    # Enable only for Laravel Octane applications:
-    # checkOctaneCompatibility: true
-
-    # Keep suppressions narrow, valid and documented
-    reportUnmatchedIgnoredErrors: true
-    reportIgnoresWithoutComments: true
