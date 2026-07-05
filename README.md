@@ -34,6 +34,7 @@ Each behavior below is its own `Configuration` class, listed in the `configurati
 | `ViteAggressivePrefetching` | production | `vite_aggressive_prefetching` | Calls `Vite::useAggressivePrefetching()` — prefetches all built JS/CSS chunks in the background after initial load. |
 | `PreventStrayRequests` | test suite only | `prevent_stray_requests` | Calls `Http::preventStrayRequests()` — an un-faked `Http::` call throws instead of hitting the real network. |
 | `PreventStrayProcesses` | test suite only | `prevent_stray_processes` | Calls `Process::preventStrayProcesses()` — an un-faked `Process::` call throws instead of shelling out for real, once something in the test has also called `Process::fake()`. |
+| `QueueFailedJobLogging` | production | `queue_failed_job_logging` | Calls `Queue::failing()` — logs the connection, queue, job class, and exception whenever a queued job exhausts its retries and fails. |
 
 A few of these are deliberately environment-gated in opposite directions on purpose: `StrictModels` and `DatabaseMonitoring` are noisy-by-design developer feedback, so they're off in production to avoid throwing in front of real users. `ProhibitDestructiveCommands`, `ForceHttpsScheme`, and `AutomaticEagerLoading` are production safety nets that would just get in the way locally. `PreventStrayRequests` and `PreventStrayProcesses` are narrower still — gated on the test environment specifically, not just "outside production", since applying them during ordinary local development would break every real outbound request or shell command your app makes.
 
