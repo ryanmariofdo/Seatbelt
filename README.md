@@ -32,8 +32,10 @@ Each behavior below is its own `Configuration` class, listed in the `configurati
 | `DatabaseMonitoring` | outside production | `database.enforce_monitoring`, `database.query_budget_ms` | Logs a warning once a connection's cumulative query time exceeds the configured budget — surfaces slow queries and N+1s while you're building the feature. |
 | `AutomaticEagerLoading` | production | `automatically_eager_load_relationships` | Calls `Model::automaticallyEagerLoadRelationships()` — an N+1 that slips past `StrictModels` in development gets silently upgraded to an eager load in production instead of hitting real users with per-row queries. |
 | `ViteAggressivePrefetching` | production | `vite_aggressive_prefetching` | Calls `Vite::useAggressivePrefetching()` — prefetches all built JS/CSS chunks in the background after initial load. |
+| `PreventStrayRequests` | test suite only | `prevent_stray_requests` | Calls `Http::preventStrayRequests()` — an un-faked `Http::` call throws instead of hitting the real network. |
+| `PreventStrayProcesses` | test suite only | `prevent_stray_processes` | Calls `Process::preventStrayProcesses()` — an un-faked `Process::` call throws instead of shelling out for real, once something in the test has also called `Process::fake()`. |
 
-A few of these are deliberately environment-gated in opposite directions on purpose: `StrictModels` and `DatabaseMonitoring` are noisy-by-design developer feedback, so they're off in production to avoid throwing in front of real users. `ProhibitDestructiveCommands`, `ForceHttpsScheme`, and `AutomaticEagerLoading` are production safety nets that would just get in the way locally.
+A few of these are deliberately environment-gated in opposite directions on purpose: `StrictModels` and `DatabaseMonitoring` are noisy-by-design developer feedback, so they're off in production to avoid throwing in front of real users. `ProhibitDestructiveCommands`, `ForceHttpsScheme`, and `AutomaticEagerLoading` are production safety nets that would just get in the way locally. `PreventStrayRequests` and `PreventStrayProcesses` are narrower still — gated on the test environment specifically, not just "outside production", since applying them during ordinary local development would break every real outbound request or shell command your app makes.
 
 ## Tooling bootstrap
 
