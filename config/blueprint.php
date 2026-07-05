@@ -9,6 +9,7 @@ use Judehashane\Blueprint\Configurations\ForceHttpsScheme;
 use Judehashane\Blueprint\Configurations\PreventStrayProcesses;
 use Judehashane\Blueprint\Configurations\PreventStrayRequests;
 use Judehashane\Blueprint\Configurations\ProhibitDestructiveCommands;
+use Judehashane\Blueprint\Configurations\QueueFailedJobLogging;
 use Judehashane\Blueprint\Configurations\StrictModels;
 use Judehashane\Blueprint\Configurations\ViteAggressivePrefetching;
 
@@ -37,6 +38,7 @@ return [
         AutomaticEagerLoading::class,
         PreventStrayRequests::class,
         PreventStrayProcesses::class,
+        QueueFailedJobLogging::class,
     ],
 
     /*
@@ -179,4 +181,20 @@ return [
     */
 
     'prevent_stray_processes' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Queue Failed Job Logging
+    |--------------------------------------------------------------------------
+    |
+    | When true, QueueFailedJobLogging calls Queue::failing() in production,
+    | logging the connection, queue, job, class and exception whenever a
+    | queue job exhausts its retries and fails - surfacing failures via
+    | your normal log channel instead of only via - `failed_jobs` table rows
+    | that tend to go overlooked.
+    |
+    */
+
+    'queue_failed_job_logging' => true,
+
 ];
