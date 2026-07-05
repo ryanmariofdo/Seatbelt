@@ -6,6 +6,8 @@ use Judehashane\Blueprint\Configurations\AutomaticEagerLoading;
 use Judehashane\Blueprint\Configurations\DatabaseMonitoring;
 use Judehashane\Blueprint\Configurations\DefaultPasswordRules;
 use Judehashane\Blueprint\Configurations\ForceHttpsScheme;
+use Judehashane\Blueprint\Configurations\PreventStrayProcesses;
+use Judehashane\Blueprint\Configurations\PreventStrayRequests;
 use Judehashane\Blueprint\Configurations\ProhibitDestructiveCommands;
 use Judehashane\Blueprint\Configurations\StrictModels;
 use Judehashane\Blueprint\Configurations\ViteAggressivePrefetching;
@@ -33,6 +35,8 @@ return [
         DatabaseMonitoring::class,
         ViteAggressivePrefetching::class,
         AutomaticEagerLoading::class,
+        PreventStrayRequests::class,
+        PreventStrayProcesses::class,
     ],
 
     /*
@@ -146,4 +150,33 @@ return [
 
     'automatically_eager_load_relationships' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Prevent Stray Requests
+    |--------------------------------------------------------------------------
+    |
+    | When true, PreventStrayRequests calls Http::preventStrayRequests()
+    | while running the test suite, so an un-faked Http:: call fails loudly
+    | instead of hitting the real network. Gated on the test environment
+    | specifically (not just "outside of production"), since applying this
+    | during ordinary local development would break every real outbound
+    | request your app makes.
+    |
+    */
+
+    'prevent_stray_requests' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Prevent Stray Processes
+    |--------------------------------------------------------------------------
+    |
+    | When true, PreventStrayProcesses calls Process::preventStrayProcesses()
+    | while running the test suite, so an un-faked Process:: call fails loudly
+    | instead of shelling out for real. Same test-only gating as
+    | prevent_stray_requests, for the same reason.
+    |
+    */
+
+    'prevent_stray_processes' => true,
 ];
