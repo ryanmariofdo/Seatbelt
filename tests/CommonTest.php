@@ -13,6 +13,7 @@ use Judehashane\Seatbelt\Configurations\PreventStrayRequests;
 use Judehashane\Seatbelt\Configurations\ProhibitDestructiveCommands;
 use Judehashane\Seatbelt\Configurations\QueueFailedJobLogging;
 use Judehashane\Seatbelt\Configurations\StrictModels;
+use Judehashane\Seatbelt\Configurations\ViteAggressivePrefetching;
 
 dataset('production-gated configurations', [
     'ProhibitDestructiveCommands' => [ProhibitDestructiveCommands::class, 'seatbelt.prohibit_destructive_commands'],
@@ -20,6 +21,7 @@ dataset('production-gated configurations', [
     'ForceHttpsScheme' => [ForceHttpsScheme::class, 'seatbelt.force_https_scheme'],
     'AutomaticEagerLoading' => [AutomaticEagerLoading::class, 'seatbelt.automatically_eager_load_relationships'],
     'QueueFailedJobLogging' => [QueueFailedJobLogging::class, 'seatbelt.queue_failed_job_logging'],
+    'ViteAggressivePrefetching' => [ViteAggressivePrefetching::class, 'seatbelt.vite_aggressive_prefetching'],
 ]);
 
 dataset('dev-gated configurations', [
